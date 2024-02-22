@@ -1,0 +1,5 @@
+
+enum Pages{
+  listening,
+  notListening
+}
