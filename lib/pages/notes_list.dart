@@ -15,7 +15,7 @@ class NotesList extends StatefulWidget {
 }
 
 class _NotesListState extends State<NotesList> {
-  var item;
+
   @override
   Widget build(BuildContext context) {
     ListeningProvider listenVM =
@@ -40,10 +40,10 @@ class _NotesListState extends State<NotesList> {
         ),
         backgroundColor: Colors.white,
         body: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           itemCount: listenVM.getNotes.length,
           itemBuilder: (BuildContext context, int index) {
-             item = listenVM.getNotes[index];
+            var item = listenVM.getNotes[index];
             return ZoomIn(
 
               duration: const Duration(milliseconds: 700),
