@@ -40,91 +40,104 @@ class _NotesListState extends State<NotesList> {
         ),
         backgroundColor: Colors.white,
         body: ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.all(10),
           itemCount: listenVM.getNotes.length,
           itemBuilder: (BuildContext context, int index) {
             var item = listenVM.getNotes[index];
-            return ZoomIn(
-
+            return FadeIn(
               duration: const Duration(milliseconds: 700),
               delay:  Duration(milliseconds: index*100),
-              child: FadeIn(
-                duration: const Duration(milliseconds: 700),
-                delay:  Duration(milliseconds: index*100),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context2) => NoteView(item: item, index: index),),);
-                      },
-                    child: Stack(
-                      children: [
-                        Container(
-                            height: 200,
-                            decoration: BoxDecoration(
-                              boxShadow: const <BoxShadow>[
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    offset: Offset(-8.0, 8.0),
-                                    blurRadius: 4.0),
-                              ],
-                              gradient: const LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: <Color>[
-                                  CustomColor.newPurple2,
-                                  CustomColor.newPurple,
-                                ],
-                              ),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(15.0),
-                                  child: Text(
-                                    item.toString(),
-                                    style: const TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w700,
-                                        overflow: TextOverflow.fade,
-                                        color: Colors.white70),
-                                    softWrap: true,
-                          ),
-                                ))),
-                        Positioned(
-                          right: 20,
-                          bottom: 20,
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                alert(context, index);
-                              });
-                              },
-                            child: Container(
-                                height: 50,
-                                width: 50,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context2) => NoteView(item: item, index: index),),);
+                  },
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      padding: const EdgeInsets.only(top: 15,left: 15,right: 15),
+                        height: 200,
+                        decoration: const BoxDecoration(
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                                color: Colors.black12,
+                                offset: Offset(-8.0, 8.0),
+                                blurRadius: 10.0)
 
-                                decoration: BoxDecoration(
-                                    boxShadow: const <BoxShadow>[
-                                      BoxShadow(
-                                          color: CustomColor.nearlyBlack,
-                                          offset: Offset(-8.0, 8.0),
-                                          blurRadius: 8.0),
-                                    ],
-                                color:  CustomColor.red,
-                                borderRadius: BorderRadius.circular(10)),
-                                child: const Icon(
-                                  Icons.delete,
-                                  color: Colors.white,
-                            )),
+                          ],
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: <Color>[
+                              CustomColor.newPurple2,
+                              CustomColor.newPurple,
+                            ],
+                          ),
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft:  Radius.circular(15)),
+                        ),
+                        child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Text(
+                                item.toString(),
+                                style: const TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w700,
+                                    overflow: TextOverflow.fade,
+                                    color: Colors.white70),
+                                softWrap: true,
+                      ),
+                            ))),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      margin:  const EdgeInsets.only(left:15,bottom:  30,right: 15),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft:Radius.circular(15)),
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(-8.0, 14.0),
+                              blurRadius: 10.0)
+
+                        ],
+                      ),
+                      child:
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  alert(context, index);
+                                });
+                              },
+                              child: const Icon(
+                                Icons.delete,
+                                color: CustomColor.red,
+                                size: 40,
+                              ),
+                            ),
+                            const SizedBox(width: 20,),
+
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: const Icon(
+                                Icons.edit,
+                                color: Colors.green,
+                                size: 40,
+                              ),
+                            ),
+                            const SizedBox(width: 15,)
+                          ],
+                        ),
                       ),
                     )
                   ],
                 ),
           ),
-        ),
-              ),
             );
         },
       ),

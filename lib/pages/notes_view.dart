@@ -75,7 +75,7 @@ class _NoteViewState extends State<NoteView> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: CustomColor.newPurple2,
+              color: Colors.lightGreen,
               borderRadius: BorderRadius.circular(10),
             ),
             height: 70,
