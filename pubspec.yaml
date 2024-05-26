@@ -12,16 +12,16 @@ dependencies:
     sdk: flutter
   speech_to_text:
   loading_animation_widget:
-  shared_preferences: ^2.2.2
-  provider: ^6.1.1
+  shared_preferences:
+  provider:
   animate_do:
   lottie:
-  cupertino_icons: ^1.0.2
+  cupertino_icons:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints:
 
 flutter:
   uses-material-design: true

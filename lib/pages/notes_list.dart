@@ -122,9 +122,9 @@ class _NotesListState extends State<NotesList> {
                             ),
                             const SizedBox(width: 20,),
 
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: const Icon(
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(
                                 Icons.edit,
                                 color: Colors.green,
                                 size: 40,
